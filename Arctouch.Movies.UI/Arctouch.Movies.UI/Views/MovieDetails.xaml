@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+			prism:ViewModelLocator.AutowireViewModel="True"
+			x:Class="Arctouch.Movies.UI.Views.MovieDetails" Title="{Binding MovieTitle}">
+	<ContentPage.Content>
+		<ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical">
+			<Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+				<ActivityIndicator IsRunning="{Binding IsProcessing}"
+					HorizontalOptions="Center" VerticalOptions="Center">
+				</ActivityIndicator>
+				<StackLayout IsVisible="{Binding ShowMovie}" Spacing="10" Margin="15,10" 
+					HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+					<Image VerticalOptions="FillAndExpand" 
+							HorizontalOptions="FillAndExpand"
+							Source="{Binding Movie.FullPosterUrlForDetails}" />
+					<Label Text="Release Date:" FontSize="Small" LineBreakMode="WordWrap" 
+							FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+					<Label Text="{Binding Movie.ReleaseDateFormatted}" FontSize="Small" 
+							LineBreakMode="WordWrap" HorizontalTextAlignment="Center"/>
+					<Label Text="Genres:" FontSize="Small" LineBreakMode="WordWrap" 
+							FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+					<Label Text="{Binding Movie.GenresFormatted}" FontSize="Small" 
+							LineBreakMode="WordWrap" HorizontalTextAlignment="Center"/>
+					<Label Text="Overview:" FontSize="Small" LineBreakMode="WordWrap" 
+							FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+					<Label Text="{Binding Movie.Overview}" FontSize="Small" LineBreakMode="WordWrap"
+							HorizontalTextAlignment="Center" Margin="15,5"/>
+				</StackLayout>
+			</Grid>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>
